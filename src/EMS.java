@@ -3,34 +3,58 @@ import java.util.Scanner;
 
 public class EMS {
     private ArrayList<String> menuChoices = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    final int priceHamburger = 8;
+    final int priceSchnitzel = 12;
+    final int priceLasagne = 16;
+
+
+
 
     // **************** payForYourLunch method ******************
     public void payForYourLunch(Employee employee) {
-        System.out.println("*********** EMS class Method payForLunch ***********");
+
+        // Create scanner object for input data
+        Scanner scanner = new Scanner(System.in);
+
+        // Create variables
+        String txtMenuChoice;
         int amountToPay = 0;
-        System.out.println("Enter menu choice: (hamburger, schnitzel,lasagne): ");
-        String menuChoice = scanner.nextLine();
 
-        if (menuChoices.contains(menuChoice)) {
-            switch (menuChoice.toLowerCase()) {
-                case "hamburger":
-                    amountToPay = 8;
-                case "schnitzel":
-                    amountToPay = 12;
-                case "lasagne":
-                    amountToPay = 16;
+        // Display Menu
+        System.out.println("*********** EMS class Method payForLunch ***********");
+        System.out.println("--- M E N U   C H O I C E ----");
+        System.out.println("Choose <1> for <lasagne> ");
+        System.out.println("Choose <2> for <schnitzel> ");
+        System.out.println("Choose <3> for <lasagne> ");
+        System.out.print("Enter your choice : ");
+        int menuChoice = scanner.nextInt();
+
+        if (menuChoice > 0 && menuChoice < 4) {
+            switch (menuChoice) {
+                case 1:
+                    amountToPay = priceHamburger;
+                    employee.takingFood("hamburger");
+                    break;
+                case 2:
+                    amountToPay = priceSchnitzel;
+                    employee.takingFood("schnitzel");
+                    break;
+                case 3:
+                    amountToPay = priceLasagne;
+                    employee.takingFood("lasagne");
+                    break;
             }
-            // Set employee food instances variable to the menu chosen
-            employee.takingFood(menuChoice);
 
-            // Use and decrease the employers vouchers in order to pay the menu chosen
+            // Decrease the employers vouchers in order to pay the menu chosen
             employee.havingLunch(amountToPay);
 
-        } else System.out.println("Menu choice entered does not exist ... ");
+        } else System.out.println("Menu choice <" + menuChoice +  "> does not exist ... ");
     }
 
     public static void main(String[] args) {
+
+        // Create scanner object for input data
+        Scanner scanner = new Scanner(System.in);
 
         // Create some test Employee classes
         Employee employee1 = new Employee("Serge", "Goetzinger", 10);
@@ -46,9 +70,34 @@ public class EMS {
         ems.menuChoices.add("schnitzel");
         ems.menuChoices.add("lasagne");
 
-        // Test EMS for student
-        System.out.println("Test EMS for employee " + student.getFirstName() + " " + student.getLastName() + " (" + student.title + ")");
-        ems.payForYourLunch(student);
+        System.out.println("Choose Employee to test: ");
+        System.out.println("Choose <1> for Student ");
+        System.out.println("Choose <2> for PostDoc ");
+        System.out.println("Choose <3> for Professor ");
+        System.out.print("Enter your choice : ");
+
+        int titleChoice = scanner.nextInt();
+
+        if (titleChoice > 0 && titleChoice < 4) {
+            switch (titleChoice) {
+                case 1:
+                    // Test EMS for student
+                    System.out.println("Test EMS for employee " + student.getFirstName() + " " + student.getLastName() + " (" + student.title + ")");
+                    ems.payForYourLunch(student);
+                    break;
+                case 2:
+                    // Test for PostDoc
+                    System.out.println("Test EMS for employee " + postDoc.getFirstName() + " " + postDoc.getLastName() + " (" + postDoc.title + ")");
+                    ems.payForYourLunch(postDoc);
+                    break;
+                case 3:
+                    // Test for PostDoc
+                    System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + postDoc.title + ")");
+                    ems.payForYourLunch(postDoc);
+                    break;
+            }
+
+        } else System.out.println("Option  <" + titleChoice +  "> does not exist ... ");
 
     }
 }

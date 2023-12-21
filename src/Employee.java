@@ -4,7 +4,9 @@ public class Employee {
 
     private int nbrVoucher;
 
-    String food;
+    private String food;
+
+    final int voucherValue = 4;
 
     public Employee(String firstName, String lastName, int nbrVoucher) {
         this.firstName = firstName;
@@ -28,15 +30,19 @@ public class Employee {
         this.nbrVoucher = nbrVoucher;
     }
 
+    public void setFood(String food) {
+        this.food = food;
+    }
+
     public void takingFood(String menuChoice) {
         menuChoice = menuChoice.toLowerCase();
         switch (menuChoice) {
             case "hamburger":
-                food = "hamburger";
+                setFood("hamburger");
             case "schnitzel":
-                food = "schnitzel";
+                setFood("schnitzel");
             case "lasagna":
-                food = "lasagna";
+                setFood("lasagna");
         }
         System.out.println("******* Employee Class Method takingFood ********");
         System.out.println("Instance variable <food> set to : " + menuChoice);
