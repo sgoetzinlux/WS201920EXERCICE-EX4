@@ -50,17 +50,19 @@ public class Employee {
     }
 
     public void havingLunch(int lunchBill) {
-        int nbrOfVoucherNeeded = lunchBill/voucherValue;
+        int nbrOfVoucherNeeded = lunchBill / voucherValue;
         System.out.println("*********** Employee class Method having Lunch ***********");
-        System.out.println("Amount to pay : " +  lunchBill);
+        System.out.println("Amount to pay : " + lunchBill);
         System.out.println("Number of voucher needed : " + nbrOfVoucherNeeded);
         System.out.println("Old voucher counter : " + getNbrVoucher());
 
-        if (nbrOfVoucherNeeded > 0) {
+        if (getNbrVoucher() >0 && nbrOfVoucherNeeded >= getNbrVoucher()) {
             setNbrVoucher(getNbrVoucher() - nbrOfVoucherNeeded);
             System.out.println("New voucher counter : " + getNbrVoucher());
+        } else {
+            System.out.println("Not enough vouchers to pay bill ! ");
+            setNbrVoucher(0);
         }
-        else System.out.println("Not enough vouchers to pay bill ! ");
     }
 }
 
