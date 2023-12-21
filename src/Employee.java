@@ -50,7 +50,7 @@ public class Employee {
     }
 
     public void havingLunch(int lunchBill) {
-        int nbrOfVoucherNeeded = lunchBill/4;
+        int nbrOfVoucherNeeded = lunchBill/voucherValue;
         System.out.println("*********** Employee class Method having Lunch ***********");
         System.out.println("Amount to pay : " +  lunchBill);
         System.out.println("Number of voucher needed : " + nbrOfVoucherNeeded);

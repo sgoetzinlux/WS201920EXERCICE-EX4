@@ -92,8 +92,8 @@ public class EMS {
                     break;
                 case 3:
                     // Test for PostDoc
-                    System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + postDoc.title + ")");
-                    ems.payForYourLunch(postDoc);
+                    System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + professor.title + ")");
+                    ems.payForYourLunch(professor);
                     break;
             }
 
