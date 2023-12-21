@@ -56,7 +56,7 @@ public class Employee {
         System.out.println("Number of voucher needed : " + nbrOfVoucherNeeded);
         System.out.println("Old voucher counter : " + getNbrVoucher());
 
-        if (getNbrVoucher() >0 && nbrOfVoucherNeeded >= getNbrVoucher()) {
+        if (getNbrVoucher() >= nbrOfVoucherNeeded) {
             setNbrVoucher(getNbrVoucher() - nbrOfVoucherNeeded);
             System.out.println("New voucher counter : " + getNbrVoucher());
         } else {

@@ -8,8 +8,6 @@ public class EMS {
     final int priceLasagne = 16;
 
 
-
-
     // **************** payForYourLunch method ******************
     public void payForYourLunch(Employee employee) {
 
@@ -48,7 +46,7 @@ public class EMS {
             // Decrease the employers vouchers in order to pay the menu chosen
             employee.havingLunch(amountToPay);
 
-        } else System.out.println("Menu choice <" + menuChoice +  "> does not exist ... ");
+        } else System.out.println("Menu choice <" + menuChoice + "> does not exist ... ");
     }
 
     public static void main(String[] args) {
@@ -69,35 +67,40 @@ public class EMS {
         ems.menuChoices.add("hamburger");
         ems.menuChoices.add("schnitzel");
         ems.menuChoices.add("lasagne");
+        while (true) {
+            System.out.println("********************************* ");
+            System.out.println("Choose Employee to test: ");
+            System.out.println("Choose <1> for Student ");
+            System.out.println("Choose <2> for PostDoc ");
+            System.out.println("Choose <3> for Professor ");
+            System.out.println("Choose <4> to exit EMS system ... ");
+            System.out.print("Enter your choice : ");
 
-        System.out.println("Choose Employee to test: ");
-        System.out.println("Choose <1> for Student ");
-        System.out.println("Choose <2> for PostDoc ");
-        System.out.println("Choose <3> for Professor ");
-        System.out.print("Enter your choice : ");
+            int titleChoice = scanner.nextInt();
 
-        int titleChoice = scanner.nextInt();
+            if (titleChoice > 0 && titleChoice < 5) {
+                switch (titleChoice) {
+                    case 1:
+                        // Test EMS for student
+                        System.out.println("Test EMS for employee " + student.getFirstName() + " " + student.getLastName() + " (" + student.title + ")");
+                        ems.payForYourLunch(student);
+                        break;
+                    case 2:
+                        // Test for PostDoc
+                        System.out.println("Test EMS for employee " + postDoc.getFirstName() + " " + postDoc.getLastName() + " (" + postDoc.title + ")");
+                        ems.payForYourLunch(postDoc);
+                        break;
+                    case 3:
+                        // Test for PostDoc
+                        System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + professor.title + ")");
+                        ems.payForYourLunch(professor);
+                        break;
+                    case 4:
+                        System.out.println("Exiting Employee Management System. Goodbye!");
+                        System.exit(0);
+                }
 
-        if (titleChoice > 0 && titleChoice < 4) {
-            switch (titleChoice) {
-                case 1:
-                    // Test EMS for student
-                    System.out.println("Test EMS for employee " + student.getFirstName() + " " + student.getLastName() + " (" + student.title + ")");
-                    ems.payForYourLunch(student);
-                    break;
-                case 2:
-                    // Test for PostDoc
-                    System.out.println("Test EMS for employee " + postDoc.getFirstName() + " " + postDoc.getLastName() + " (" + postDoc.title + ")");
-                    ems.payForYourLunch(postDoc);
-                    break;
-                case 3:
-                    // Test for PostDoc
-                    System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + professor.title + ")");
-                    ems.payForYourLunch(professor);
-                    break;
-            }
-
-        } else System.out.println("Option  <" + titleChoice +  "> does not exist ... ");
-
+            } else System.out.println("Option  <" + titleChoice + "> does not exist ... ");
+        }
     }
 }
