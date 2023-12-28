@@ -76,24 +76,28 @@ public class EMS {
 
             int titleChoice = scanner.nextInt();
 
-            if (titleChoice > 0 && titleChoice < 5) {
+            if (titleChoice > 0 && titleChoice < 6) {
                 switch (titleChoice) {
                     case 1:
+                        // Test EMS for student
+                        System.out.println("Test EMS for employee " + employee1.getFirstName() + " " + employee1.getLastName() + " (" + employee1.title + ")");
+                        ems.payForYourLunch(employee1);
+                    case 2:
                         // Test EMS for student
                         System.out.println("Test EMS for employee " + student.getFirstName() + " " + student.getLastName() + " (" + student.title + ")");
                         ems.payForYourLunch(student);
                         break;
-                    case 2:
+                    case 3:
                         // Test for PostDoc
                         System.out.println("Test EMS for employee " + postDoc.getFirstName() + " " + postDoc.getLastName() + " (" + postDoc.title + ")");
                         ems.payForYourLunch(postDoc);
                         break;
-                    case 3:
+                    case 4:
                         // Test for PostDoc
                         System.out.println("Test EMS for employee " + professor.getFirstName() + " " + professor.getLastName() + " (" + professor.title + ")");
                         ems.payForYourLunch(professor);
                         break;
-                    case 4:
+                    case 5:
                         System.out.println("Exiting Employee Management System. Goodbye!");
                         System.exit(0);
                 }

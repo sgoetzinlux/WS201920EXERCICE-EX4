@@ -2,7 +2,9 @@ public class Employee {
     private String firstName;
     private String lastName;
 
-     int nbrVoucher;
+    String title = "Employee";
+
+     int nbrVoucher = 10;
 
     private String food;
 
