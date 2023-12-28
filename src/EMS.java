@@ -15,7 +15,6 @@ public class EMS {
         Scanner scanner = new Scanner(System.in);
 
         // Create variables
-        String txtMenuChoice;
         int amountToPay = 0;
 
         // Display Menu
