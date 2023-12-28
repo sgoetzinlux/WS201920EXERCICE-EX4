@@ -10,6 +10,7 @@ public class Employee {
 
     final int voucherValue = 4;
 
+    // Employee constructor
     public Employee(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
