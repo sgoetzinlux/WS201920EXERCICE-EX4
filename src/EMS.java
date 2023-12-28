@@ -46,19 +46,18 @@ public class EMS {
             // Decrease the employers vouchers in order to pay the menu chosen
             employee.havingLunch(amountToPay);
 
-        } else System.out.println("Menu choice <" + menuChoice + "> does not exist ... ");
+        } else System.out.println("Menu choice <" + menuChoice + "> does not exist  !!! ");
     }
-
     public static void main(String[] args) {
 
         // Create scanner object for input data
         Scanner scanner = new Scanner(System.in);
 
         // Create some test Employee classes
-        Employee employee1 = new Employee("Serge", "Goetzinger", 10);
-        PhdStudent student = new PhdStudent("Gilles", "Goetzinger", 15);
-        PostDoc postDoc = new PostDoc("Marlon", "Brando", 20);
-        Professor professor = new Professor("Francois", "Dubois", 25);
+        Employee employee1 = new Employee("Serge", "Goetzinger");
+        PhdStudent student = new PhdStudent("Gilles", "Goetzinger");
+        PostDoc postDoc = new PostDoc("Marlon", "Brando");
+        Professor professor = new Professor("Francois", "Dubois");
 
         // Create an EMS class
         EMS ems = new EMS();
